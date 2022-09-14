@@ -22,14 +22,15 @@ class TBWeatherVC: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = UIColor(named: "mainBackgroundColor")
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         view.addSubview(screenTitle)
         view.addSubview(searchIconPadding)
         view.addSubview(cityTextField)
         searchIconPadding.addSubview(magnifyingIcon)
         
         screenTitle.text = "Search for city"
-        screenTitle.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        screenTitle.translatesAutoresizingMaskIntoConstraints = false
+        screenTitle.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         screenTitle.textAlignment = .center
         
         cityTextField.layer.cornerRadius = 10
@@ -37,15 +38,18 @@ class TBWeatherVC: UIViewController {
         cityTextField.placeholder = "Search..."
         cityTextField.backgroundColor = .systemBackground
         cityTextField.adjustsFontSizeToFitWidth = true
-        magnifyingIcon.contentMode = .scaleAspectFit
-        magnifyingIcon.image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
+        
         cityTextField.leftView = searchIconPadding
         cityTextField.leftViewMode = .always
-        magnifyingIcon.tintColor = .secondaryLabel
         cityTextField.font = UIFont.preferredFont(forTextStyle: .body)
         cityTextField.textColor = .secondaryLabel
-        cityTextField.translatesAutoresizingMaskIntoConstraints = false
         
+        magnifyingIcon.tintColor = .secondaryLabel
+        magnifyingIcon.contentMode = .scaleAspectFit
+        magnifyingIcon.image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
+        
+        screenTitle.translatesAutoresizingMaskIntoConstraints = false
+        cityTextField.translatesAutoresizingMaskIntoConstraints = false
         searchIconPadding.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

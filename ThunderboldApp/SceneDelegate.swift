@@ -14,19 +14,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+//        UserDefaults.standard.set(false, forKey: "isUserSawOnboarding")
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let navigationController = UINavigationController()
+        let tbWeatherVc = TBWeatherVC()
+        let tbOnboardingVc = TBOnboardingVC()
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        var vc = UIViewController()
+        
         if UserDefaults.standard.bool(forKey: "isUserSawOnboarding") {
             // show main vc
-            vc = TBWeatherVC()
+            
+            navigationController.viewControllers = [tbWeatherVc]
         } else {
             // show onboarding
-            vc = TBOnboardingVC()
+            
+            navigationController.viewControllers = [tbWeatherVc, tbOnboardingVc]
             UserDefaults.standard.set(true, forKey: "isUserSawOnboarding")
         }
-        window?.rootViewController = vc
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

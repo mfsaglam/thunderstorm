@@ -25,6 +25,7 @@ class TBOnboardingVC: UIViewController {
         view.addSubview(button)
         view.addSubview(label)
         view.addSubview(subtitle)
+        button.addTarget(self, action: #selector(goToWeatherVC), for: .touchUpInside)
         view.backgroundColor = UIColor(named: "mainBackgroundColor")
 
         label.text = "Find your weather predictions in your City"
@@ -70,6 +71,11 @@ class TBOnboardingVC: UIViewController {
             subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
+    }
+    
+    @objc func goToWeatherVC() {
+        let destinationVc = TBWeatherVC()
+        navigationController?.pushViewController(destinationVc, animated: true)
     }
 
 
