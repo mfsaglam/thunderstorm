@@ -23,21 +23,22 @@ class TBTextField: UITextField {
     
     private func configureUI() {
         searchIconPadding.addSubview(magnifyingIcon)
-        magnifyingIcon.tintColor = .secondaryLabel
+        magnifyingIcon.tintColor = .gray
         magnifyingIcon.contentMode = .scaleAspectFit
         magnifyingIcon.image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
     
-        layer.cornerRadius = 8
-        clearButtonMode = .whileEditing
         placeholder = "Search..."
-        backgroundColor = .systemBackground
-        adjustsFontSizeToFitWidth = true
+        returnKeyType = .go
+        clearButtonMode = .whileEditing
         leftView = searchIconPadding
         leftViewMode = .always
-        font = UIFont.preferredFont(forTextStyle: .body)
-        textColor = .secondaryLabel
+        adjustsFontSizeToFitWidth = true
         keyboardType = .default
-        returnKeyType = .go
+        
+        textColor = .secondaryLabel
+        backgroundColor = .white
+        layer.cornerRadius = 8
+        font = UIFont.preferredFont(forTextStyle: .body)
         
         magnifyingIcon.translatesAutoresizingMaskIntoConstraints = false
         searchIconPadding.translatesAutoresizingMaskIntoConstraints = false
