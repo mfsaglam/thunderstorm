@@ -10,7 +10,7 @@ import UIKit
 class TBOnboardingVC: UIViewController {
     
     var sunnyImage = UIImageView()
-    var button = UIButton()
+    var button = TBButton()
     var label = UILabel()
     var subtitle = UILabel()
 
@@ -21,6 +21,7 @@ class TBOnboardingVC: UIViewController {
     }
     
     private func configureUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         view.addSubview(sunnyImage)
         view.addSubview(button)
         view.addSubview(label)
@@ -39,18 +40,12 @@ class TBOnboardingVC: UIViewController {
         subtitle.textAlignment = .center
         subtitle.textColor = .secondaryLabel
         
-        
-        button.setTitle("Get Started", for: .normal)
-        button.backgroundColor = UIColor(named: "AccentColor")
-        button.layer.cornerRadius = 10
-        
         sunnyImage.image = UIImage(named: "sunnyglass")
         sunnyImage.contentMode = .scaleAspectFit
         
         label.translatesAutoresizingMaskIntoConstraints = false
         subtitle.translatesAutoresizingMaskIntoConstraints = false
         sunnyImage.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             sunnyImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),

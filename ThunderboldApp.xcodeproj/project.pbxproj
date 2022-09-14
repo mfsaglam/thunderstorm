@@ -14,6 +14,7 @@
 		121106DE28D10FAE00190415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 121106DC28D10FAE00190415 /* LaunchScreen.storyboard */; };
 		1211965A28D2009200684577 /* TBWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211965928D2009200684577 /* TBWeatherVC.swift */; };
 		1211965C28D2348D00684577 /* TBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211965B28D2348D00684577 /* TBTextField.swift */; };
+		1211965E28D2381600684577 /* TBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211965D28D2381600684577 /* TBButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		121106DF28D10FAE00190415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1211965928D2009200684577 /* TBWeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBWeatherVC.swift; sourceTree = "<group>"; };
 		1211965B28D2348D00684577 /* TBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBTextField.swift; sourceTree = "<group>"; };
+		1211965D28D2381600684577 /* TBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				1211965928D2009200684577 /* TBWeatherVC.swift */,
 				1211965B28D2348D00684577 /* TBTextField.swift */,
 				121106D528D10FAD00190415 /* TBOnboardingVC.swift */,
+				1211965D28D2381600684577 /* TBButton.swift */,
 				121106DA28D10FAE00190415 /* Assets.xcassets */,
 				121106DC28D10FAE00190415 /* LaunchScreen.storyboard */,
 				121106DF28D10FAE00190415 /* Info.plist */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				121106D628D10FAD00190415 /* TBOnboardingVC.swift in Sources */,
+				1211965E28D2381600684577 /* TBButton.swift in Sources */,
 				121106D228D10FAD00190415 /* AppDelegate.swift in Sources */,
 				1211965C28D2348D00684577 /* TBTextField.swift in Sources */,
 				121106D428D10FAD00190415 /* SceneDelegate.swift in Sources */,
