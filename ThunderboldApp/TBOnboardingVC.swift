@@ -17,7 +17,6 @@ class TBOnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        // Do any additional setup after loading the view.
     }
     
     private func configureUI() {
@@ -26,7 +25,6 @@ class TBOnboardingVC: UIViewController {
         view.addSubview(button)
         view.addSubview(label)
         view.addSubview(subtitle)
-        button.addTarget(self, action: #selector(goToWeatherVC), for: .touchUpInside)
         view.backgroundColor = UIColor(named: "mainBackgroundColor")
 
         label.text = "Find your weather predictions in your City"
@@ -42,6 +40,8 @@ class TBOnboardingVC: UIViewController {
         
         sunnyImage.image = UIImage(named: "sunnyglass")
         sunnyImage.contentMode = .scaleAspectFit
+        
+        button.addTarget(self, action: #selector(goToWeatherVC), for: .touchUpInside)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         subtitle.translatesAutoresizingMaskIntoConstraints = false
