@@ -7,11 +7,13 @@
 
 import UIKit
 
-
-
 class TBWeatherCardView: UIView {
     
     var frameView = UIView()
+    var cityName = UILabel()
+    var degrees = UILabel()
+    var weatherIcon = UIImageView()
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +27,9 @@ class TBWeatherCardView: UIView {
     
     private func configureUI() {
         addSubview(frameView)
+        addSubview(cityName)
+        addSubview(degrees)
+        addSubview(weatherIcon)
         
         frameView.translatesAutoresizingMaskIntoConstraints = false
     }

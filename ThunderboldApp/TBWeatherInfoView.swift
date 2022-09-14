@@ -29,17 +29,27 @@ class TBWeatherInfoView: UIView {
         addSubview(titleLabel)
         addSubview(dataLabel)
         
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         titleLabel.textColor = .secondaryLabel
+        titleLabel.textAlignment = .center
         
-        dataLabel.font = UIFont.systemFont(ofSize: 32, weight: .regular)
-        titleLabel.textColor = .label
+        dataLabel.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+        dataLabel.textColor = .label
+        dataLabel.textAlignment = .center
+        
         translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         dataLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
+            dataLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            dataLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            dataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            dataLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
     
