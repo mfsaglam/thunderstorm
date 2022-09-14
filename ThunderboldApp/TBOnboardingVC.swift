@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TBOnboardingVC: UIViewController {
     
     var sunnyImage = UIImageView()
     var button = UIButton()
@@ -57,9 +57,9 @@ class ViewController: UIViewController {
             sunnyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             sunnyImage.heightAnchor.constraint(equalToConstant: 300),
             
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             button.heightAnchor.constraint(equalToConstant: 50),
             
             label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -150),

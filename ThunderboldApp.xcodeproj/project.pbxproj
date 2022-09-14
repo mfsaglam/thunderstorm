@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		121106D228D10FAD00190415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121106D128D10FAD00190415 /* AppDelegate.swift */; };
 		121106D428D10FAD00190415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121106D328D10FAD00190415 /* SceneDelegate.swift */; };
-		121106D628D10FAD00190415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121106D528D10FAD00190415 /* ViewController.swift */; };
+		121106D628D10FAD00190415 /* TBOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121106D528D10FAD00190415 /* TBOnboardingVC.swift */; };
 		121106DB28D10FAE00190415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 121106DA28D10FAE00190415 /* Assets.xcassets */; };
 		121106DE28D10FAE00190415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 121106DC28D10FAE00190415 /* LaunchScreen.storyboard */; };
+		1211965A28D2009200684577 /* TBWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211965928D2009200684577 /* TBWeatherVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		121106CE28D10FAD00190415 /* ThunderboldApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderboldApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		121106D128D10FAD00190415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		121106D328D10FAD00190415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		121106D528D10FAD00190415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		121106D528D10FAD00190415 /* TBOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBOnboardingVC.swift; sourceTree = "<group>"; };
 		121106DA28D10FAE00190415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		121106DD28D10FAE00190415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		121106DF28D10FAE00190415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1211965928D2009200684577 /* TBWeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBWeatherVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 			children = (
 				121106D128D10FAD00190415 /* AppDelegate.swift */,
 				121106D328D10FAD00190415 /* SceneDelegate.swift */,
-				121106D528D10FAD00190415 /* ViewController.swift */,
+				1211965928D2009200684577 /* TBWeatherVC.swift */,
+				121106D528D10FAD00190415 /* TBOnboardingVC.swift */,
 				121106DA28D10FAE00190415 /* Assets.xcassets */,
 				121106DC28D10FAE00190415 /* LaunchScreen.storyboard */,
 				121106DF28D10FAE00190415 /* Info.plist */,
@@ -134,9 +137,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121106D628D10FAD00190415 /* ViewController.swift in Sources */,
+				121106D628D10FAD00190415 /* TBOnboardingVC.swift in Sources */,
 				121106D228D10FAD00190415 /* AppDelegate.swift in Sources */,
 				121106D428D10FAD00190415 /* SceneDelegate.swift in Sources */,
+				1211965A28D2009200684577 /* TBWeatherVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
