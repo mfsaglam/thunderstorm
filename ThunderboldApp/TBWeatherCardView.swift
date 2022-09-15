@@ -12,6 +12,10 @@ class TBWeatherCardView: UIView {
     var cityName = UILabel()
     var degrees = UILabel()
     var weatherIcon = UIImageView()
+    var mostly = TBWeatherInfoView()
+    var humidity = TBWeatherInfoView()
+    var wind = TBWeatherInfoView()
+    var pressure = TBWeatherInfoView()
     
 
     override init(frame: CGRect) {
@@ -29,6 +33,11 @@ class TBWeatherCardView: UIView {
         addSubview(degrees)
         addSubview(weatherIcon)
         
+        addSubview(mostly)
+        addSubview(humidity)
+        addSubview(wind)
+        addSubview(pressure)
+        
         layer.cornerRadius = 40
         backgroundColor = .systemBackground
         
@@ -43,6 +52,8 @@ class TBWeatherCardView: UIView {
         
         weatherIcon.image = UIImage(named: "sunnyglass")
         weatherIcon.contentMode = .scaleAspectFit
+        
+        mostly.set(type: .mostly, with: "Sunny")
         
         cityName.translatesAutoresizingMaskIntoConstraints = false
         degrees.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +72,10 @@ class TBWeatherCardView: UIView {
             weatherIcon.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             weatherIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             weatherIcon.leadingAnchor.constraint(equalTo: degrees.trailingAnchor, constant: 20),
-            weatherIcon.heightAnchor.constraint(equalToConstant: 100)
+            weatherIcon.heightAnchor.constraint(equalToConstant: 100),
+            
+            mostly.topAnchor.constraint(equalTo: degrees.bottomAnchor, constant: 20),
+            mostly.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
     }
 
