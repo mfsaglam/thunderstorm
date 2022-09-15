@@ -12,6 +12,7 @@ class TBWeatherVC: UIViewController {
     var screenTitle = UILabel()
     var locationButton = UIButton()
     var cityTextField = TBTextField()
+    var weatherCardView = TBWeatherCardView()
     
 
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ class TBWeatherVC: UIViewController {
         view.addSubview(screenTitle)
         view.addSubview(locationButton)
         view.addSubview(cityTextField)
+        view.addSubview(weatherCardView)
         
         screenTitle.text = "Search for city"
         screenTitle.font = UIFont.systemFont(ofSize: 18, weight: .medium)
@@ -57,7 +59,12 @@ class TBWeatherVC: UIViewController {
             cityTextField.topAnchor.constraint(equalTo: screenTitle.bottomAnchor, constant: 30),
             cityTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             cityTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            cityTextField.heightAnchor.constraint(equalToConstant: 50)
+            cityTextField.heightAnchor.constraint(equalToConstant: 50),
+            
+            weatherCardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            weatherCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            weatherCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            weatherCardView.heightAnchor.constraint(equalToConstant: 330)
         ])
     }
     
