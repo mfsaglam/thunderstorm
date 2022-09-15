@@ -8,7 +8,7 @@
 import UIKit
 
 enum weatherInfoType {
-    case precipaion, wind, humidity, pressure
+    case mostly, wind, humidity, pressure
 }
 
 class TBWeatherInfoView: UIView {
