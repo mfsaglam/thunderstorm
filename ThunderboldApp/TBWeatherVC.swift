@@ -9,14 +9,19 @@ import UIKit
 
 class TBWeatherVC: UIViewController {
     
+    var weather: Weather!
     var screenTitle = UILabel()
     var locationButton = UIButton()
     var cityTextField = TBTextField()
     var weatherCardView = TBWeatherCardView()
     
+    var isCityNameEntered: Bool {
+        return !cityTextField.text!.isEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDelegates()
         configureUI()
         createDismissKeyboardTapGesture()
     }
@@ -24,6 +29,14 @@ class TBWeatherVC: UIViewController {
     private func createDismissKeyboardTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture )
+    }
+    
+    private func updateData(with weather: Weather) {
+        weatherCardView.updateDataOnMainThread(with: weather)
+    }
+    
+    private func configureDelegates() {
+        cityTextField.delegate = self
     }
     
     private func configureUI() {
@@ -72,4 +85,29 @@ class TBWeatherVC: UIViewController {
         //get current location and get weather data
     }
 
+}
+
+extension TBWeatherVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard isCityNameEntered else {
+            //present alert
+            return false
+        }
+        Task {
+            do {
+                let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: cityTextField.text!)
+                self.weather = weather
+                updateData(with: weather)
+            } catch {
+                if let tbError = error as? TBError {
+                    //present alert here
+                    print(tbError.rawValue)
+                } else {
+                    //
+                }
+            }
+        }
+        cityTextField.resignFirstResponder()
+        return true
+    }
 }

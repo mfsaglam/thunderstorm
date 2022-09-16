@@ -27,6 +27,13 @@ class TBWeatherCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateDataOnMainThread(with weather: Weather) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.cityName.text = weather.location?.name
+        }
+    }
+    
     private func configureUI() {
         addSubview(cityName)
         addSubview(degrees)
