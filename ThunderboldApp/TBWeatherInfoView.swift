@@ -60,12 +60,10 @@ class TBWeatherInfoView: UIView {
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            titleLabel.widthAnchor.constraint(equalToConstant: 150),
             
             dataLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             dataLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             dataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            dataLabel.heightAnchor.constraint(equalToConstant: 28),
         ])
     }
     
