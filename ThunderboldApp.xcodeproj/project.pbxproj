@@ -17,6 +17,9 @@
 		1211965E28D2381600684577 /* TBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1211965D28D2381600684577 /* TBButton.swift */; };
 		12C5683828D247E600EE2083 /* TBWeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5683728D247E600EE2083 /* TBWeatherCardView.swift */; };
 		12C5683A28D2491A00EE2083 /* TBWeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5683928D2491A00EE2083 /* TBWeatherInfoView.swift */; };
+		12CAFA0D28D4B45300AD39CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CAFA0C28D4B45300AD39CD /* NetworkManager.swift */; };
+		12CAFA0F28D4B67E00AD39CD /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CAFA0E28D4B67E00AD39CD /* Weather.swift */; };
+		12CAFA1128D4B9A100AD39CD /* TBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CAFA1028D4B9A100AD39CD /* TBError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		1211965D28D2381600684577 /* TBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBButton.swift; sourceTree = "<group>"; };
 		12C5683728D247E600EE2083 /* TBWeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBWeatherCardView.swift; sourceTree = "<group>"; };
 		12C5683928D2491A00EE2083 /* TBWeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBWeatherInfoView.swift; sourceTree = "<group>"; };
+		12CAFA0C28D4B45300AD39CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		12CAFA0E28D4B67E00AD39CD /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		12CAFA1028D4B9A100AD39CD /* TBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +72,13 @@
 			children = (
 				121106D128D10FAD00190415 /* AppDelegate.swift */,
 				121106D328D10FAD00190415 /* SceneDelegate.swift */,
-				1211965928D2009200684577 /* TBWeatherVC.swift */,
+				12CAFA0C28D4B45300AD39CD /* NetworkManager.swift */,
+				12CAFA1028D4B9A100AD39CD /* TBError.swift */,
+				12CAFA0E28D4B67E00AD39CD /* Weather.swift */,
 				12C5683728D247E600EE2083 /* TBWeatherCardView.swift */,
 				12C5683928D2491A00EE2083 /* TBWeatherInfoView.swift */,
 				1211965B28D2348D00684577 /* TBTextField.swift */,
+				1211965928D2009200684577 /* TBWeatherVC.swift */,
 				121106D528D10FAD00190415 /* TBOnboardingVC.swift */,
 				1211965D28D2381600684577 /* TBButton.swift */,
 				121106DA28D10FAE00190415 /* Assets.xcassets */,
@@ -149,9 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CAFA1128D4B9A100AD39CD /* TBError.swift in Sources */,
+				12CAFA0D28D4B45300AD39CD /* NetworkManager.swift in Sources */,
 				121106D628D10FAD00190415 /* TBOnboardingVC.swift in Sources */,
 				1211965E28D2381600684577 /* TBButton.swift in Sources */,
 				121106D228D10FAD00190415 /* AppDelegate.swift in Sources */,
+				12CAFA0F28D4B67E00AD39CD /* Weather.swift in Sources */,
 				1211965C28D2348D00684577 /* TBTextField.swift in Sources */,
 				121106D428D10FAD00190415 /* SceneDelegate.swift in Sources */,
 				12C5683828D247E600EE2083 /* TBWeatherCardView.swift in Sources */,
