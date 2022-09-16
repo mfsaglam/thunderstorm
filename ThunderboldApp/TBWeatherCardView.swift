@@ -34,9 +34,9 @@ class TBWeatherCardView: UIView {
         addSubview(seperator)
         
         addSubview(mostly)
-//        addSubview(humidity)
-//        addSubview(wind)
-//        addSubview(pressure)
+        addSubview(humidity)
+        addSubview(wind)
+        addSubview(pressure)
         
         layer.cornerRadius = 40
         backgroundColor = .systemBackground
@@ -58,6 +58,9 @@ class TBWeatherCardView: UIView {
         seperator.backgroundColor = .secondaryLabel
         
         mostly.set(type: .mostly, with: "Sunny")
+        humidity.set(type: .humidity, with: "NA")
+        wind.set(type: .wind, with: "NA")
+        pressure.set(type: .pressure, with: "NA")
         
         cityName.translatesAutoresizingMaskIntoConstraints = false
         degrees.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +92,18 @@ class TBWeatherCardView: UIView {
             mostly.topAnchor.constraint(equalTo: degrees.bottomAnchor, constant: 20),
             mostly.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             mostly.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: -10),
+            
+            humidity.topAnchor.constraint(equalTo: mostly.bottomAnchor, constant: 70),
+            humidity.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            humidity.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: -10),
+            
+            wind.topAnchor.constraint(equalTo: degrees.bottomAnchor, constant: 20),
+            wind.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: 10),
+            wind.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            pressure.topAnchor.constraint(equalTo: wind.bottomAnchor, constant: 70),
+            pressure.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: 10),
+            pressure.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
 
