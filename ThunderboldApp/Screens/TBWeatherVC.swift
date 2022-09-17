@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TBWeatherVC: UIViewController {
+    
+    let locationManager = CLLocationManager()
     
     var weather: Weather?
     var screenTitle = UILabel()
@@ -25,8 +28,10 @@ class TBWeatherVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDelegates()
+        configureLocationManager()
         configureUI()
         createDismissKeyboardTapGesture()
+        startUpdatingLocation()
     }
     
     private func createDismissKeyboardTapGesture() {
@@ -51,13 +56,24 @@ class TBWeatherVC: UIViewController {
     }
     
     @objc private func locationTapped() {
-        //get current location and get weather data
+        cityTextField.resignFirstResponder()
+        startUpdatingLocation()
     }
     
     //MARK: - Configuration
     
     private func configureDelegates() {
         cityTextField.delegate = self
+        locationManager.delegate = self
+    }
+    
+    private func configureLocationManager() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestAlwaysAuthorization()
+    }
+    
+    private func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
     }
     
     private func configureUI() {
@@ -156,5 +172,13 @@ extension TBWeatherVC: UITextFieldDelegate {
             present(actionSheet, animated: true)
             return false
         }
+    }
+}
+
+extension TBWeatherVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        locationManager.stopUpdatingLocation()
     }
 }

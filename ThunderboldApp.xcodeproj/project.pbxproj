@@ -382,6 +382,9 @@
 				DEVELOPMENT_TEAM = RPQ3VF2JBZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ThunderboldApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to be able to find weather data for your city.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to be able to find weather data for your city.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -409,6 +412,9 @@
 				DEVELOPMENT_TEAM = RPQ3VF2JBZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ThunderboldApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to be able to find weather data for your city.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to be able to find weather data for your city.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
