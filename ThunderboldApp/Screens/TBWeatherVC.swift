@@ -18,7 +18,7 @@ class TBWeatherVC: UIViewController {
     var cityTextField = TBTextField()
     var weatherCardView = TBWeatherCardView()
     
-    var textFieldShouldBecomeFirstResponder = false
+    var textFieldShouldBecomeFirstResponder = true
     var previousCityNames = [String]()
     
     var isCityNameEntered: Bool {
@@ -40,7 +40,9 @@ class TBWeatherVC: UIViewController {
     }
     
     private func updateData(with weather: Weather) {
-        addCityNameToPreviousSearches(weather.location?.name ?? "")
+        if let name = weather.location?.name {
+            addCityNameToPreviousSearches(name)
+        }
         cityTextField.text = ""
         weatherCardView.updateDataOnMainThread(with: weather)
     }
@@ -59,7 +61,9 @@ class TBWeatherVC: UIViewController {
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                         present(alert, animated: true)
                     } else {
-                        //
+                        let alert = UIAlertController(title: "Something went wrong", message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        present(alert, animated: true)
                     }
                 }
             case .location:
@@ -73,7 +77,9 @@ class TBWeatherVC: UIViewController {
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                         present(alert, animated: true)
                     } else {
-                        //
+                        let alert = UIAlertController(title: "Something went wrong", message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        present(alert, animated: true)
                     }
                 }
             }
@@ -82,11 +88,11 @@ class TBWeatherVC: UIViewController {
     
     private func addCityNameToPreviousSearches(_ city: String) {
         if previousCityNames.count < 5 && !previousCityNames.contains(city) && !city.isEmpty {
-            previousCityNames.append(weather?.location?.name ?? "")
+            previousCityNames.append(city)
 
         } else {
             previousCityNames.removeFirst()
-            previousCityNames.append(weather?.location?.name ?? "")
+            previousCityNames.append(city)
         }
     }
     
@@ -146,10 +152,10 @@ class TBWeatherVC: UIViewController {
             cityTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             cityTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            weatherCardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            weatherCardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             weatherCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             weatherCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            weatherCardView.heightAnchor.constraint(equalToConstant: 330)
+            weatherCardView.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
 }

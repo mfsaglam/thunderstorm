@@ -51,6 +51,7 @@ class TBWeatherInfoView: UIView {
         dataLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dataLabel.textColor = .label
         dataLabel.textAlignment = .center
+        dataLabel.adjustsFontSizeToFitWidth = true
         
         translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
