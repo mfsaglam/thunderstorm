@@ -95,7 +95,7 @@ extension TBWeatherVC: UITextFieldDelegate {
         }
         Task {
             do {
-                let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: cityTextField.text!)
+                let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: cityTextField.text!.replacingOccurrences(of: " ", with: "%20"))
                 self.weather = weather
                 updateData(with: weather)
             } catch {
