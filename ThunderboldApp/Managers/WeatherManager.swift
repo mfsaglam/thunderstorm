@@ -9,8 +9,8 @@ import UIKit
 
 struct WeatherManager {
     
-    func getConditionImage(weatherCode: Int) -> UIImage {
-
-    }
+//    func getConditionImage(weatherCode: Int) -> UIImage {
+//        
+//    }
     
 }

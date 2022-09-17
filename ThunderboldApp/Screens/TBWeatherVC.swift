@@ -152,7 +152,7 @@ class TBWeatherVC: UIViewController {
             cityTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             cityTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            weatherCardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            weatherCardView.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 20),
             weatherCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             weatherCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             weatherCardView.heightAnchor.constraint(equalToConstant: 300)
