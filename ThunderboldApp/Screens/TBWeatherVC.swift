@@ -35,7 +35,19 @@ class TBWeatherVC: UIViewController {
     }
     
     private func updateData(with weather: Weather) {
+        addCityNameToPreviousSearches(weather.location?.name ?? "")
+        cityTextField.text = ""
         weatherCardView.updateDataOnMainThread(with: weather)
+    }
+    
+    private func addCityNameToPreviousSearches(_ city: String) {
+        if previousCityNames.count < 5 && !previousCityNames.contains(city) {
+            previousCityNames.append(weather?.location?.name ?? "")
+
+        } else {
+            previousCityNames.removeFirst()
+            previousCityNames.append(weather?.location?.name ?? "")
+        }
     }
     
     @objc private func locationTapped() {
@@ -97,7 +109,9 @@ extension TBWeatherVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard isCityNameEntered else {
-            //present alert
+            let alert = UIAlertController(title: "Something went wrong", message: "Please enter a city name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
             return false
         }
         Task {
@@ -108,8 +122,9 @@ extension TBWeatherVC: UITextFieldDelegate {
                 updateData(with: weather)
             } catch {
                 if let tbError = error as? TBError {
-                    //present alert here
-                    print(tbError.rawValue)
+                    let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    present(alert, animated: true)
                 } else {
                     //
                 }
