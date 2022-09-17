@@ -15,6 +15,9 @@ class TBWeatherVC: UIViewController {
     var cityTextField = TBTextField()
     var weatherCardView = TBWeatherCardView()
     
+    var textFieldShouldBecomeFirstResponder = false
+    var previousCityNames = [String]()
+    
     var isCityNameEntered: Bool {
         return !cityTextField.text!.isEmpty
     }
@@ -91,6 +94,7 @@ class TBWeatherVC: UIViewController {
 //MARK: - UITextField Delegate
 
 extension TBWeatherVC: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard isCityNameEntered else {
             //present alert
@@ -113,5 +117,29 @@ extension TBWeatherVC: UITextFieldDelegate {
         }
         cityTextField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textFieldShouldBecomeFirstResponder {
+            textFieldShouldBecomeFirstResponder = false
+            return true
+        }
+        if previousCityNames.count == 0 {
+            return true
+        } else {
+            let actionSheet = UIAlertController(title: "", message: "Previously...", preferredStyle: .actionSheet)
+            for cityName in previousCityNames {
+                actionSheet.addAction(UIAlertAction(title: cityName, style: .default, handler: { _ in
+                    print("update weatherData with: \(cityName)")
+                }))
+            }
+            actionSheet.addAction(UIAlertAction(title: "Custom...", style: .cancel, handler: { [weak self] _ in
+                guard let self = self else { return }
+                self.textFieldShouldBecomeFirstResponder = true
+                self.cityTextField.becomeFirstResponder()
+            }))
+            present(actionSheet, animated: true)
+            return false
+        }
     }
 }
