@@ -9,7 +9,7 @@ import UIKit
 
 class TBWeatherVC: UIViewController {
     
-    var weather: Weather!
+    var weather: Weather?
     var screenTitle = UILabel()
     var locationButton = UIButton()
     var cityTextField = TBTextField()
