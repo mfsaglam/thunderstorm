@@ -31,6 +31,8 @@ class TBTextField: UITextField {
     
         placeholder = "Search..."
         returnKeyType = .go
+        autocapitalizationType = .none
+        autocorrectionType = .no
         clearButtonMode = .whileEditing
         leftView = searchIconPadding
         leftViewMode = .always

@@ -30,6 +30,7 @@ class TBWeatherCardView: UIView {
     func updateDataOnMainThread(with weather: Weather) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            guard !weather.location!.name!.isEmpty else { return }
             self.cityName.text = weather.location?.name
             self.degrees.text = "\(weather.current?.temperature ?? 0) °c"
             self.mostly.dataLabel.text = weather.current?.weatherDescriptions?.first

@@ -8,11 +8,6 @@
 import UIKit
 import CoreLocation
 
-enum RequestType {
-    case cityName
-    case location
-}
-
 class TBWeatherVC: UIViewController {
     
     let locationManager = CLLocationManager()
@@ -86,7 +81,7 @@ class TBWeatherVC: UIViewController {
     }
     
     private func addCityNameToPreviousSearches(_ city: String) {
-        if previousCityNames.count < 5 && !previousCityNames.contains(city) {
+        if previousCityNames.count < 5 && !previousCityNames.contains(city) && !city.isEmpty {
             previousCityNames.append(weather?.location?.name ?? "")
 
         } else {

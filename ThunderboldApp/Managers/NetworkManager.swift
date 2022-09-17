@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum RequestType {
+    case cityName
+    case location
+}
+
 class NetworkManager {
     static let shared = NetworkManager()
     private let ACCESS_KEY = "de0329703863c43ecfeaf1820817af24"
