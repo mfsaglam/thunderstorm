@@ -39,6 +39,8 @@ class TBWeatherCardView: UIView {
         }
     }
     
+    //MARK: - Configuration
+    
     private func configureUI() {
         addSubview(cityName)
         addSubview(degrees)
@@ -118,5 +120,4 @@ class TBWeatherCardView: UIView {
             pressure.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
-
 }

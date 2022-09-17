@@ -35,6 +35,12 @@ class TBWeatherVC: UIViewController {
         weatherCardView.updateDataOnMainThread(with: weather)
     }
     
+    @objc private func locationTapped() {
+        //get current location and get weather data
+    }
+    
+    //MARK: - Configuration
+    
     private func configureDelegates() {
         cityTextField.delegate = self
     }
@@ -80,12 +86,9 @@ class TBWeatherVC: UIViewController {
             weatherCardView.heightAnchor.constraint(equalToConstant: 330)
         ])
     }
-    
-    @objc private func locationTapped() {
-        //get current location and get weather data
-    }
-
 }
+
+//MARK: - UITextField Delegate
 
 extension TBWeatherVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

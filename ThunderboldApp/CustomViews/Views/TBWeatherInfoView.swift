@@ -66,6 +66,4 @@ class TBWeatherInfoView: UIView {
             dataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
-    
-
 }

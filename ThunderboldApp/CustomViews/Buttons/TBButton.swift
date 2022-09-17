@@ -18,6 +18,8 @@ class TBButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Configuration
+    
     private func configureUI() {
         setTitle("Get Started", for: .normal)
         backgroundColor = UIColor(named: "AccentColor")
@@ -25,6 +27,4 @@ class TBButton: UIButton {
         titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    
 }

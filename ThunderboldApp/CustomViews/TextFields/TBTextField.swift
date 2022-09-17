@@ -21,6 +21,8 @@ class TBTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Configuration
+    
     private func configureUI() {
         searchIconPadding.addSubview(magnifyingIcon)
         magnifyingIcon.tintColor = .gray
@@ -51,5 +53,4 @@ class TBTextField: UITextField {
             magnifyingIcon.trailingAnchor.constraint(equalTo: searchIconPadding.trailingAnchor, constant: -20)
         ])
     }
-
 }

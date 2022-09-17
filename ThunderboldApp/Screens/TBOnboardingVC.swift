@@ -19,6 +19,13 @@ class TBOnboardingVC: UIViewController {
         configureUI()
     }
     
+    @objc func goToWeatherVC() {
+        let destinationVc = TBWeatherVC()
+        navigationController?.pushViewController(destinationVc, animated: true)
+    }
+    
+    //MARK: - Configuration
+    
     private func configureUI() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addSubview(sunnyImage)
@@ -67,12 +74,5 @@ class TBOnboardingVC: UIViewController {
             subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
     }
-    
-    @objc func goToWeatherVC() {
-        let destinationVc = TBWeatherVC()
-        navigationController?.pushViewController(destinationVc, animated: true)
-    }
-
-
 }
 
