@@ -70,22 +70,94 @@
 		121106D028D10FAD00190415 /* ThunderboldApp */ = {
 			isa = PBXGroup;
 			children = (
-				121106D128D10FAD00190415 /* AppDelegate.swift */,
-				121106D328D10FAD00190415 /* SceneDelegate.swift */,
-				12CAFA0C28D4B45300AD39CD /* NetworkManager.swift */,
-				12CAFA1028D4B9A100AD39CD /* TBError.swift */,
-				12CAFA0E28D4B67E00AD39CD /* Weather.swift */,
-				12C5683728D247E600EE2083 /* TBWeatherCardView.swift */,
-				12C5683928D2491A00EE2083 /* TBWeatherInfoView.swift */,
-				1211965B28D2348D00684577 /* TBTextField.swift */,
-				1211965928D2009200684577 /* TBWeatherVC.swift */,
-				121106D528D10FAD00190415 /* TBOnboardingVC.swift */,
-				1211965D28D2381600684577 /* TBButton.swift */,
-				121106DA28D10FAE00190415 /* Assets.xcassets */,
+				12B3089C28D5F08C00D93277 /* Support */,
+				12B3089728D5F02700D93277 /* Managers */,
+				12B3089B28D5F07D00D93277 /* Utilities */,
+				12B3089828D5F03B00D93277 /* Model */,
+				12B3089928D5F05100D93277 /* CustomViews */,
+				12B3089A28D5F05D00D93277 /* Screens */,
 				121106DC28D10FAE00190415 /* LaunchScreen.storyboard */,
 				121106DF28D10FAE00190415 /* Info.plist */,
 			);
 			path = ThunderboldApp;
+			sourceTree = "<group>";
+		};
+		12B3089728D5F02700D93277 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				12CAFA0C28D4B45300AD39CD /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		12B3089828D5F03B00D93277 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12CAFA0E28D4B67E00AD39CD /* Weather.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		12B3089928D5F05100D93277 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				12B3089D28D5F0DD00D93277 /* Views */,
+				12B3089E28D5F0E600D93277 /* TextFields */,
+				12B3089F28D5F0EF00D93277 /* Buttons */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		12B3089A28D5F05D00D93277 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1211965928D2009200684577 /* TBWeatherVC.swift */,
+				121106D528D10FAD00190415 /* TBOnboardingVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		12B3089B28D5F07D00D93277 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				12CAFA1028D4B9A100AD39CD /* TBError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		12B3089C28D5F08C00D93277 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				121106DA28D10FAE00190415 /* Assets.xcassets */,
+				121106D128D10FAD00190415 /* AppDelegate.swift */,
+				121106D328D10FAD00190415 /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		12B3089D28D5F0DD00D93277 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12C5683728D247E600EE2083 /* TBWeatherCardView.swift */,
+				12C5683928D2491A00EE2083 /* TBWeatherInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		12B3089E28D5F0E600D93277 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				1211965B28D2348D00684577 /* TBTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		12B3089F28D5F0EF00D93277 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				1211965D28D2381600684577 /* TBButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
