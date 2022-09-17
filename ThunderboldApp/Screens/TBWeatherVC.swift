@@ -8,6 +8,11 @@
 import UIKit
 import CoreLocation
 
+enum RequestType {
+    case cityName
+    case location
+}
+
 class TBWeatherVC: UIViewController {
     
     let locationManager = CLLocationManager()
@@ -43,6 +48,41 @@ class TBWeatherVC: UIViewController {
         addCityNameToPreviousSearches(weather.location?.name ?? "")
         cityTextField.text = ""
         weatherCardView.updateDataOnMainThread(with: weather)
+    }
+    
+    private func requestWeatherData(requestType: RequestType, query: String) {
+        Task {
+            switch requestType {
+            case .cityName:
+                do {
+                    let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: query)
+                    self.weather = weather
+                    updateData(with: weather)
+                } catch {
+                    if let tbError = error as? TBError {
+                        let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        present(alert, animated: true)
+                    } else {
+                        //
+                    }
+                }
+            case .location:
+                do {
+                    let weather = try await NetworkManager.shared.getWeatherInfo(withLocation: query)
+                    self.weather = weather
+                    updateData(with: weather)
+                } catch {
+                    if let tbError = error as? TBError {
+                        let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        present(alert, animated: true)
+                    } else {
+                        //
+                    }
+                }
+            }
+        }
     }
     
     private func addCityNameToPreviousSearches(_ city: String) {
@@ -130,22 +170,8 @@ extension TBWeatherVC: UITextFieldDelegate {
             present(alert, animated: true)
             return false
         }
-        Task {
-            do {
-                let query = cityTextField.text!.replacingOccurrences(of: " ", with: "%20")
-                let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: query)
-                self.weather = weather
-                updateData(with: weather)
-            } catch {
-                if let tbError = error as? TBError {
-                    let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                    present(alert, animated: true)
-                } else {
-                    //
-                }
-            }
-        }
+        let query = cityTextField.text!.replacingOccurrences(of: " ", with: "%20")
+        requestWeatherData(requestType: .cityName, query: query)
         cityTextField.resignFirstResponder()
         return true
     }
@@ -160,8 +186,10 @@ extension TBWeatherVC: UITextFieldDelegate {
         } else {
             let actionSheet = UIAlertController(title: "", message: "Previously...", preferredStyle: .actionSheet)
             for cityName in previousCityNames {
-                actionSheet.addAction(UIAlertAction(title: cityName, style: .default, handler: { _ in
-                    print("update weatherData with: \(cityName)")
+                actionSheet.addAction(UIAlertAction(title: cityName, style: .default, handler: { [weak self] action in
+                    guard let self = self else { return }
+                    let query = action.title?.replacingOccurrences(of: " ", with: "%20")
+                    self.requestWeatherData(requestType: .cityName, query: query ?? "")
                 }))
             }
             actionSheet.addAction(UIAlertAction(title: "Custom...", style: .cancel, handler: { [weak self] _ in
@@ -178,7 +206,8 @@ extension TBWeatherVC: UITextFieldDelegate {
 extension TBWeatherVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        let query = "\(locValue.latitude),\(locValue.longitude)"
+        requestWeatherData(requestType: .location, query: query)
         locationManager.stopUpdatingLocation()
     }
 }
