@@ -17,6 +17,8 @@ struct WeatherManager {
                 return Images.partlyCloudy
             } else if (119...122).contains(weatherCode) {
                 return Images.cloudy
+            } else if weatherCode == 143 {
+                return Images.cloudy
             } else if (176...305).contains(weatherCode) {
                 return Images.rainy
             } else if weatherCode == 308 {

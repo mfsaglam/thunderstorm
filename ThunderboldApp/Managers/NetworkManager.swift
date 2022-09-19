@@ -14,7 +14,7 @@ enum RequestType {
 
 class NetworkManager {
     static let shared = NetworkManager()
-    private let ACCESS_KEY = "de0329703863c43ecfeaf1820817af24"
+    private let ACCESS_KEY = "06355c24ca3416115a7af460b123ce9b"
 
     private let baseUrl = "http://api.weatherstack.com/current?access_key="
     let decoder = JSONDecoder()
