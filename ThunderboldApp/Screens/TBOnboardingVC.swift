@@ -32,20 +32,20 @@ class TBOnboardingVC: UIViewController {
         view.addSubview(button)
         view.addSubview(label)
         view.addSubview(subtitle)
-        view.backgroundColor = UIColor(named: "mainBackgroundColor")
+        view.backgroundColor = Colors.mainBackgroundColor
 
-        label.text = "Find your weather predictions in your City"
+        label.text = Labels.onboardingTitle
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.numberOfLines = 0
         label.textAlignment = .center
         
-        subtitle.text = "Easy steps to predict the weather and make your day easier"
+        subtitle.text = Labels.onboardingMessage
         subtitle.font = UIFont.systemFont(ofSize: 17)
         subtitle.numberOfLines = 0
         subtitle.textAlignment = .center
         subtitle.textColor = .secondaryLabel
         
-        sunnyImage.image = UIImage(named: "rainyglass")
+        sunnyImage.image = Images.rainy
         sunnyImage.contentMode = .scaleAspectFit
         
         button.addTarget(self, action: #selector(goToWeatherVC), for: .touchUpInside)

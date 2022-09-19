@@ -35,11 +35,11 @@ class TBWeatherCardView: UIView {
             guard ((weather.location?.name?.isEmpty) != nil) else { return }
             self.weatherIcon.image = self.weatherManager.getConditionImage(weatherCode: weather.current?.weather_code)
             self.cityName.text = weather.location?.name
-            self.degrees.text = "\(weather.current?.temperature ?? 0) °c"
+            self.degrees.text = "\(weather.current?.temperature ?? 0)" + Symbols.celcius
             self.mostly.dataLabel.text = weather.current?.weather_descriptions?[0]
-            self.humidity.dataLabel.text = "\(weather.current?.humidity ?? 0) %"
-            self.wind.dataLabel.text = "\(weather.current?.windSpeed ?? 0) km/h"
-            self.pressure.dataLabel.text = "\(weather.current?.pressure ?? 0)hPa"
+            self.humidity.dataLabel.text = "\(weather.current?.humidity ?? 0)" + Symbols.percentage
+            self.wind.dataLabel.text = "\(weather.current?.windSpeed ?? 0)" + Symbols.kilometersPerHour
+            self.pressure.dataLabel.text = "\(weather.current?.pressure ?? 0)" + Symbols.hectopascalPresure
         }
     }
     
@@ -59,26 +59,26 @@ class TBWeatherCardView: UIView {
         layer.cornerRadius = 40
         backgroundColor = .systemBackground
         
-        cityName.text = "San Francisco"
+        cityName.text = Symbols.notApplicable
         cityName.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         cityName.textColor = .secondaryLabel
         cityName.textAlignment = .center
         cityName.adjustsFontSizeToFitWidth = true
         
-        degrees.text = "32 °c"
+        degrees.text = Symbols.notApplicable
         degrees.adjustsFontSizeToFitWidth = true
         degrees.textAlignment = .center
         degrees.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
         
-        weatherIcon.image = UIImage(named: "sunnyglass")
+        weatherIcon.image = Images.partlyCloudy
         weatherIcon.contentMode = .scaleAspectFit
         
         seperator.backgroundColor = .secondaryLabel
         
-        mostly.set(type: .mostly, with: "Sunny")
-        humidity.set(type: .humidity, with: "NA")
-        wind.set(type: .wind, with: "NA")
-        pressure.set(type: .pressure, with: "NA")
+        mostly.set(type: .mostly, with: Symbols.notApplicable)
+        humidity.set(type: .humidity, with: Symbols.notApplicable)
+        wind.set(type: .wind, with: Symbols.notApplicable)
+        pressure.set(type: .pressure, with: Symbols.notApplicable)
         
         cityName.translatesAutoresizingMaskIntoConstraints = false
         degrees.translatesAutoresizingMaskIntoConstraints = false

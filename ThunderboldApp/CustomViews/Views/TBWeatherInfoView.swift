@@ -28,13 +28,13 @@ class TBWeatherInfoView: UIView {
     func set(type: WeatherInfoType, with info: String) {
         switch type {
         case .mostly:
-            titleLabel.text = "Mostly"
+            titleLabel.text = Labels.mostly
         case .wind:
-            titleLabel.text = "Wind"
+            titleLabel.text = Labels.wind
         case .humidity:
-            titleLabel.text = "Humidity"
+            titleLabel.text = Labels.humidity
         case .pressure:
-            titleLabel.text = "Pressure"
+            titleLabel.text = Labels.pressure
         }
     
         dataLabel.text = "\(info)"

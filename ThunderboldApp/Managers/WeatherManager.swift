@@ -12,19 +12,19 @@ struct WeatherManager {
     func getConditionImage(weatherCode: Int?) -> UIImage? {
         if let weatherCode = weatherCode {
             if weatherCode == 113 {
-                return UIImage(named: "sunnyglass")
+                return Images.sunny
             } else if weatherCode == 116 {
-                return UIImage(named: "partlycloudyglass")
+                return Images.partlyCloudy
             } else if (119...122).contains(weatherCode) {
-                return UIImage(named: "cloudyglass")
+                return Images.cloudy
             } else if (176...305).contains(weatherCode) {
-                return UIImage(named: "sunnyglass")
+                return Images.rainy
             } else if weatherCode == 308 {
-                return UIImage(named: "thunderstormglass")
+                return Images.thunderstorm
             } else if (311...395).contains(weatherCode) {
-                return UIImage(named: "cloudyglass")
+                return Images.cloudy
             } else {
-                return UIImage(named: "partlycloudyglass")
+                return Images.partlyCloudy
             }
         }
         return nil

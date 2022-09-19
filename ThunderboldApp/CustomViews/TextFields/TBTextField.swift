@@ -27,9 +27,9 @@ class TBTextField: UITextField {
         searchIconPadding.addSubview(magnifyingIcon)
         magnifyingIcon.tintColor = .gray
         magnifyingIcon.contentMode = .scaleAspectFit
-        magnifyingIcon.image = UIImage(systemName: "magnifyingglass", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
+        magnifyingIcon.image = SFSymbols.magnifyingGlass
     
-        placeholder = "Search..."
+        placeholder = Labels.searchbarPlaceholder
         returnKeyType = .go
         autocapitalizationType = .none
         autocorrectionType = .no

@@ -21,8 +21,8 @@ class TBButton: UIButton {
     //MARK: - Configuration
     
     private func configureUI() {
-        setTitle("Get Started", for: .normal)
-        backgroundColor = UIColor(named: "AccentColor")
+        setTitle(Labels.onboardingButtonLabel, for: .normal)
+        backgroundColor = Colors.accentColor
         layer.cornerRadius = 10
         titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         translatesAutoresizingMaskIntoConstraints = false

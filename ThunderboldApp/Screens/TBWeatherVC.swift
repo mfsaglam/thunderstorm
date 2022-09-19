@@ -61,12 +61,12 @@ class TBWeatherVC: UIViewController {
                 } catch {
                     dismissLoadingView()
                     if let tbError = error as? TBError {
-                        let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let alert = UIAlertController(title: Labels.defaultAlertTitle, message: tbError.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: Labels.alertButton, style: .cancel))
                         present(alert, animated: true)
                     } else {
-                        let alert = UIAlertController(title: "Something went wrong", message: "", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let alert = UIAlertController(title: Labels.defaultAlertTitle, message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: Labels.alertButton, style: .cancel))
                         present(alert, animated: true)
                     }
                 }
@@ -79,12 +79,12 @@ class TBWeatherVC: UIViewController {
                 } catch {
                     dismissLoadingView()
                     if let tbError = error as? TBError {
-                        let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let alert = UIAlertController(title: Labels.defaultAlertTitle, message: tbError.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: Labels.alertButton, style: .cancel))
                         present(alert, animated: true)
                     } else {
-                        let alert = UIAlertController(title: "Something went wrong", message: "", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let alert = UIAlertController(title: Labels.defaultAlertTitle, message: "", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: Labels.alertButton, style: .cancel))
                         present(alert, animated: true)
                     }
                 }
@@ -143,7 +143,7 @@ class TBWeatherVC: UIViewController {
     }
     
     private func configureUI() {
-        view.backgroundColor = UIColor(named: "mainBackgroundColor")
+        view.backgroundColor = Colors.mainBackgroundColor
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         view.addSubview(screenTitle)
@@ -151,12 +151,11 @@ class TBWeatherVC: UIViewController {
         view.addSubview(cityTextField)
         view.addSubview(weatherCardView)
         
-        screenTitle.text = "Search for city"
+        screenTitle.text = Labels.title
         screenTitle.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         screenTitle.textAlignment = .center
         
-        let locationButtonConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .light)
-        locationButton.setImage(UIImage(systemName: "location.circle", withConfiguration: locationButtonConfig), for: .normal)
+        locationButton.setImage(SFSymbols.location, for: .normal)
         locationButton.addTarget(self, action: #selector(locationTapped), for: .touchUpInside)
     
         screenTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -191,7 +190,7 @@ extension TBWeatherVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard isCityNameEntered else {
-            let alert = UIAlertController(title: "Something went wrong", message: "Please enter a city name", preferredStyle: .alert)
+            let alert = UIAlertController(title: Labels.defaultAlertTitle, message: Labels.emptyCityNameAlert, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
             present(alert, animated: true)
             return false
@@ -210,7 +209,7 @@ extension TBWeatherVC: UITextFieldDelegate {
         if previousCityNames.count == 0 {
             return true
         } else {
-            let actionSheet = UIAlertController(title: "", message: "Previously...", preferredStyle: .actionSheet)
+            let actionSheet = UIAlertController(title: "", message: Labels.previously, preferredStyle: .actionSheet)
             for cityName in previousCityNames {
                 actionSheet.addAction(UIAlertAction(title: cityName, style: .default, handler: { [weak self] action in
                     guard let self = self else { return }
@@ -230,6 +229,7 @@ extension TBWeatherVC: UITextFieldDelegate {
 }
 
 extension TBWeatherVC: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         let query = "\(locValue.latitude),\(locValue.longitude)"
