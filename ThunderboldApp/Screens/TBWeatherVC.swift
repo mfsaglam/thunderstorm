@@ -17,6 +17,7 @@ class TBWeatherVC: UIViewController {
     var locationButton = UIButton()
     var cityTextField = TBTextField()
     var weatherCardView = TBWeatherCardView()
+    let activityIndicator = UIActivityIndicatorView(style: .medium)
     
     var textFieldShouldBecomeFirstResponder = true
     var previousCityNames = [String]()
@@ -48,14 +49,17 @@ class TBWeatherVC: UIViewController {
     }
     
     private func requestWeatherData(requestType: RequestType, query: String) {
+        showLoadingView()
         Task {
             switch requestType {
             case .cityName:
                 do {
                     let weather = try await NetworkManager.shared.getWeatherInfo(withCityName: query)
                     self.weather = weather
+                    dismissLoadingView()
                     updateData(with: weather)
                 } catch {
+                    dismissLoadingView()
                     if let tbError = error as? TBError {
                         let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -70,8 +74,10 @@ class TBWeatherVC: UIViewController {
                 do {
                     let weather = try await NetworkManager.shared.getWeatherInfo(withLocation: query)
                     self.weather = weather
+                    dismissLoadingView()
                     updateData(with: weather)
                 } catch {
+                    dismissLoadingView()
                     if let tbError = error as? TBError {
                         let alert = UIAlertController(title: "Something went wrong", message: tbError.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -99,6 +105,25 @@ class TBWeatherVC: UIViewController {
     @objc private func locationTapped() {
         cityTextField.resignFirstResponder()
         startUpdatingLocation()
+    }
+    
+    func showLoadingView() {
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        activityIndicator.startAnimating()
+    }
+    
+    func dismissLoadingView() {
+        DispatchQueue.main.async {
+            self.activityIndicator.removeFromSuperview()
+        }
     }
     
     //MARK: - Configuration

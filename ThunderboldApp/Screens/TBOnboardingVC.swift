@@ -45,7 +45,7 @@ class TBOnboardingVC: UIViewController {
         subtitle.textAlignment = .center
         subtitle.textColor = .secondaryLabel
         
-        sunnyImage.image = UIImage(named: "sunnyglass")
+        sunnyImage.image = UIImage(named: "rainyglass")
         sunnyImage.contentMode = .scaleAspectFit
         
         button.addTarget(self, action: #selector(goToWeatherVC), for: .touchUpInside)
