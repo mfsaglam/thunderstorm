@@ -9,6 +9,8 @@ import UIKit
 
 class TBWeatherCardView: UIView {
     
+    let weatherManager = WeatherManager()
+    
     var cityName = UILabel()
     var degrees = UILabel()
     var weatherIcon = UIImageView()
@@ -31,6 +33,7 @@ class TBWeatherCardView: UIView {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard ((weather.location?.name?.isEmpty) != nil) else { return }
+            self.weatherIcon.image = self.weatherManager.getConditionImage(weatherCode: weather.current?.weather_code)
             self.cityName.text = weather.location?.name
             self.degrees.text = "\(weather.current?.temperature ?? 0) °c"
             self.mostly.dataLabel.text = weather.current?.weather_descriptions?[0]

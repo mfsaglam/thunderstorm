@@ -19,7 +19,7 @@ struct Location: Codable {
 struct Current: Codable {
     var temperature: Int?
     var weather_descriptions: [String]?
-    var weatherCode: Int?
+    var weather_code: Int?
     var windSpeed: Int?
     var pressure, humidity: Int?
 }
